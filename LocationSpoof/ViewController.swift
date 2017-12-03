@@ -35,10 +35,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(currentLocation) { (placeMark, err) in
             DispatchQueue.main.async {
-                guard let pm = placeMark?.last, let street = pm.name else {
+                guard let pm = placeMark?.last, let locationName = pm.name else {
                     self.locationLabel.text = "N/A"
                     return }
-                self.locationLabel.text = street
+                self.locationLabel.text = locationName
             }
         }
     }
